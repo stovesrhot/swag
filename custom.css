@@ -1,0 +1,814 @@
+/**
+
+Brandon Grotesque Regular
+font-family: brandon-grotesque, sans-serif;
+font-weight: 400;
+font-style: normal;
+
+Brandon Grotesque Regular Italic
+font-family: brandon-grotesque, sans-serif;
+font-weight: 400;
+font-style: italic;
+
+Brandon Grotesque Bold
+font-family: brandon-grotesque, sans-serif;
+font-weight: 700;
+font-style: normal;
+
+Brandon Grotesque Bold Italic
+font-family: brandon-grotesque, sans-serif;
+font-weight: 700;
+font-style: italic;
+
+Brandon Grotesque Light
+font-family: brandon-grotesque, sans-serif;
+font-weight: 300;
+font-style: normal;
+
+Brandon Grotesque Light Italic
+font-family: brandon-grotesque, sans-serif;
+font-weight: 300;
+font-style: italic;
+
+Brandon Grotesque Medium
+font-family: brandon-grotesque, sans-serif;
+font-weight: 500;
+font-style: normal;
+
+Brandon Grotesque Medium Italic
+font-family: brandon-grotesque, sans-serif;
+font-weight: 500;
+font-style: italic;
+
+Brandon Grotesque Black
+font-family: brandon-grotesque, sans-serif;
+font-weight: 900;
+font-style: normal;
+
+Brandon Grotesque Black Italic
+font-family: brandon-grotesque, sans-serif;
+font-weight: 900;
+font-style: italic;
+
+**/
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: brandon-grotesque, sans-serif;
+  color: #000;
+  font-size: 21px;
+}
+
+.h1-wrap {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.19em;
+  color: #231F20;
+  padding-top: 43px;
+  padding-bottom: 0px;
+  border-bottom: 4px solid #00ABC8;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+h2 {
+  font-size: 1.38em;
+  font-weight: 700;
+  border-top: 4px solid #F16268;
+  display: inline-block;
+  text-transform: uppercase;
+  padding: 30px 0;
+  color: #333;
+}
+
+h3 {
+  font-size: 0.86em;
+  font-weight: 900;
+  color: #333;
+  border-bottom: 2px solid #333;
+  padding: 12px 0;
+  display: inline-block;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+
+p {
+  font-weight: 400;
+  margin: 0 0 30px 0;
+}
+
+ul, ol {
+  font-weight: 400;
+}
+
+p + ul, p + ol {
+  margin-top: -30px;
+}
+
+strong {
+  font-weight: 500;
+}
+
+.limit, .limit960, .limit1024 {
+  max-width: 100%;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+}
+
+.limit960 {
+  text-align: left;
+}
+
+#accordion {
+  margin-bottom: 70px;
+}
+#accordion h3 {
+  display: block;
+  background: url(img/icon-plus.svg) #C3E9F0 no-repeat 98% 19px;
+  background-size: 15px;
+  border-bottom: none;
+  font-size: 1.14em;
+  font-weight: 500;
+  text-transform: none;
+  padding: 12px 30px;
+  margin-bottom: 0;
+  margin-top: 15px;
+  cursor: pointer;
+}
+#accordion h3.ui-state-active {
+  background: url(img/icon-minus.svg) #C3E9F0 no-repeat 98% 26px;
+  background-size: 15px;
+}
+#accordion .ui-accordion-content {
+  border: 1px solid #C3E9F0;
+  padding: 35px 30px;
+}
+#accordion .ui-accordion-content p {
+  font-size: 0.86em;
+}
+
+header {
+  background: #000;
+  padding: 16px 0;
+  width: 100%;
+  position: fixed;
+  z-index: 80;
+  /** end .nav **/
+}
+header .logo {
+  padding-bottom: 19px;
+}
+header .logo-img {
+  width: 360px;
+  height: 28px;
+}
+header .nav {
+  padding-bottom: 2.7em;
+  display: inline-block;
+  min-width: 690px;
+}
+header .nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+header .nav ul li {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 50px;
+}
+header .nav ul li ul {
+  position: absolute;
+  z-index: 99;
+  padding-top: 16px;
+  margin: 0;
+  display: none;
+}
+header .nav ul li ul li {
+  margin-right: 60px;
+}
+header .nav ul li ul li a {
+  font-size: 0.86em;
+  font-weight: 400;
+  text-transform: none;
+  padding: 2px 0;
+  letter-spacing: 0;
+}
+header .nav ul li ul li.current-menu-item a {
+  border-bottom: 4px solid #fff;
+}
+header .nav ul li ul li a:hover {
+  text-decoration: none;
+  border-bottom: 4px solid #fff;
+}
+header .nav ul li:hover ul {
+  display: block;
+}
+header .nav ul li.current-menu-parent > a, header .nav ul li.current-menu-item {
+  border-bottom: 4px solid #F16268;
+}
+header .nav ul li.current-menu-item#menu-item-164 {
+  border-bottom: none;
+}
+header .nav ul li.current-menu-parent .sub-menu {
+  display: block;
+}
+header .nav a {
+  font-weight: bold;
+  font-size: 0.71em;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 4px 0;
+  letter-spacing: 0.8px;
+}
+header .nav a:hover {
+  text-decoration: none;
+  border-bottom: 4px solid #F16268;
+}
+header form.search {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+header form.search .search-submit {
+  display: none;
+}
+header form.search #form-wrap {
+  display: none;
+  width: 235px;
+}
+header #search-icon {
+  width: 25px;
+  float: right;
+}
+
+/** end header **/
+main {
+  padding-top: 170px;
+}
+
+/** Homepage Styles **/
+.home main {
+  background: url(img/splash-masthead-bkg2.png) no-repeat;
+  background-size: 2920px 1180px;
+  background-position-x: center;
+}
+.home main h1 {
+  font-size: 1.76em;
+  font-weight: 700;
+  margin: 70px 0 30px 0;
+  color: #333;
+  padding: 0;
+  text-transform: none;
+  border-bottom: none;
+}
+
+.home-icons {
+  text-align: center;
+  padding-top: 9px;
+}
+.home-icons .icon-toolkit {
+  width: 103px;
+  height: 84px;
+  margin-bottom: 22px;
+}
+.home-icons .learn-more {
+  background: url(img/learn-more-arrow.svg) no-repeat 50% 34px;
+  background-size: auto 33px;
+  padding-bottom: 55px;
+  margin-top: 36px;
+}
+
+.homemap {
+  background-color: #A9E4D8;
+  padding: 70px 0 20px 0;
+}
+
+.map-image {
+  text-align: center;
+}
+
+.homespacial {
+  padding-top: 70px;
+}
+
+.graphs {
+  text-align: center;
+  padding-top: 10px;
+  padding-left: 45px !important;
+}
+.graphs .graph {
+  width: 60px;
+  display: block;
+  margin: 0 auto 15px;
+}
+.graphs h4 {
+  font-weight: 900;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  border-bottom: 2px solid #231F20;
+  padding: 12px 0;
+  color: #231F20;
+  display: inline-block;
+  margin-bottom: 25px;
+}
+.graphs .graph-caption {
+  color: #E06B6C;
+  font-size: 1.09em;
+  font-weight: 500;
+}
+
+.photo-left {
+  margin-bottom: 60px;
+}
+.photo-left img {
+  margin-right: 50px;
+}
+
+.contact {
+  background: #e0ece7;
+  text-align: center;
+  padding: 50px 0 30px 0;
+  margin-top: 70px;
+}
+.contact img {
+  width: 86px;
+  margin-bottom: 25px;
+}
+.contact p {
+  font-size: 0.86em;
+}
+.contact a {
+  text-decoration: underline;
+  color: #000;
+}
+
+/** end Homepage Styles **/
+.button a {
+  border: 1px solid #F16268;
+  color: #F16268;
+  font-weight: 900;
+  text-decoration: none;
+  font-size: 0.71em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+}
+
+.button a:hover {
+  background: #F16268;
+  color: #fff !important;
+}
+
+.button.black a {
+  border: 1px solid #000;
+  color: #000;
+}
+
+.button.black a:hover {
+  background: #000;
+  color: #fff !important;
+}
+
+/** Lesson Page Styles **/
+.post {
+  padding-top: 90px;
+}
+.post .limit {
+  padding-right: 180px;
+}
+.post .theme {
+  color: #69C9D9;
+  font-size: 0.78em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.post .theme strong {
+  font-weight: 900;
+}
+.post h1 {
+  font-size: 2.28em;
+  font-weight: 500;
+  margin: 50px 0 20px;
+  padding: 0;
+  border-bottom: none;
+  text-transform: none;
+}
+.post p.author {
+  font-size: 1em;
+}
+.post p, .post ul, .post ol {
+  font-size: 0.86em;
+  line-height: 1.4;
+  margin-bottom: 50px;
+}
+.post .lesson-details {
+  margin-bottom: 80px;
+}
+.post .lesson-details h3 {
+  color: #00ABC8;
+  border-bottom: 2px solid #00ABC8;
+}
+.post .lesson-details .leftcol {
+  padding-right: 65px;
+}
+.post .lesson-details .rightcol {
+  padding-left: 65px;
+}
+.post .lesson-details .included {
+  padding: 0;
+  list-style-type: none;
+}
+.post .lesson-details .included a {
+  font-weight: 400;
+  text-decoration: underline;
+  color: #000;
+  font-size: 0.88em;
+}
+.post .lesson-details .included a strong {
+  font-weight: 500;
+  font-size: 1.125em;
+}
+.post .lesson-details .included li.icon-pdf {
+  background: url(img/icon-pdf.svg) no-repeat 3px 0;
+  padding-left: 40px;
+}
+.post .lesson-details .included li.icon-slides {
+  background: url(img/icon-slides.svg) no-repeat 0 0;
+  padding-left: 40px;
+  margin-top: 15px;
+}
+.post .lesson-details .button a {
+  padding: 6px 20px;
+  font-size: 0.83em;
+}
+.post .feedback {
+  background-color: #FCE0E1;
+  padding: 70px 0 120px;
+}
+
+/** end Lesson Page Styles **/
+/** Toolkit Styles **/
+.toolkit-body {
+  background-color: #231F20;
+  text-align: center;
+}
+.toolkit-body .toolkit-title {
+  font-size: 2.19em;
+  color: #fff;
+  padding-top: 43px;
+  padding-bottom: 0px;
+  border-bottom: 4px solid #F16268;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+}
+.toolkit-body h1 {
+  text-transform: uppercase;
+  display: inline-block;
+  background-color: #fff;
+  color: #000;
+  font-size: 0.95em;
+  font-weight: 900;
+  padding: 9px 12px;
+  margin: 25px 0 50px;
+  border-bottom: 0;
+}
+.toolkit-body h2, .toolkit-body p {
+  color: #fff;
+}
+.toolkit-body .toolkit-box {
+  background-color: #1C1717;
+  padding: 40px;
+  margin-bottom: 55px;
+}
+.toolkit-body .toolkit-box h2 {
+  font-size: 1.38em;
+  color: #fff;
+  text-transform: none;
+  font-weight: 400;
+  border-top: none;
+}
+.toolkit-body .category-container {
+  text-align: left;
+  margin-bottom: 70px;
+}
+.toolkit-body .category-container .lessons-container .lesson-tile {
+  width: 204px;
+  height: 264px;
+  background: url(img/lesson-tile.svg) no-repeat 0 0;
+  font-size: 1.14em;
+  font-weight: 500;
+  padding: 75px 15px 15px;
+}
+.toolkit-body .category-container .lessons-container .lesson-tile a {
+  color: #000;
+}
+
+.tour {
+  background: #1C1717;
+  padding: 45px;
+}
+
+.drawer {
+  display: none;
+  color: #fff;
+  border-top: 1px solid #69C9D9;
+  padding: 50px 0;
+  margin: 40px;
+}
+.drawer h3 {
+  color: #fff;
+  font-size: 1.23em;
+  border-bottom: 0;
+  text-transform: none;
+  font-weight: 500;
+}
+.drawer h4 {
+  color: #00ABC8;
+  font-size: 0.57em;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.drawer p {
+  font-size: 0.86em;
+}
+.drawer p.button a {
+  color: #FFB607;
+  border: 1px solid #FFB607;
+}
+.drawer .details p, .drawer .details li {
+  color: #00ABC8;
+  font-size: 0.76em;
+}
+
+.using-the-toolkit h2 {
+  border-top: 4px solid #f6d449;
+}
+.using-the-toolkit .curriculum {
+  margin-top: 90px;
+}
+.using-the-toolkit .curriculum h2 {
+  margin-bottom: 45px;
+}
+.using-the-toolkit .curriculum .curriculum-circle {
+  background: url(img/curriculum-circle.svg) no-repeat 0 0;
+  height: 368px;
+  width: 400px;
+  margin: 0 auto 70px;
+  padding: 85px 20px 20px 52px;
+  position: relative;
+  left: -16px;
+}
+.using-the-toolkit .curriculum .curriculum-circle p {
+  font-size: 0.9em;
+  font-weight: 500;
+  text-align: center;
+  color: #000;
+  line-height: 1.3;
+}
+.using-the-toolkit .curriculum .curriculum-circle p.circle1 {
+  margin-bottom: 53px;
+}
+.using-the-toolkit .curriculum .curriculum-box {
+  color: #000;
+}
+.using-the-toolkit .curriculum .curriculum-box h3 {
+  display: block;
+  text-align: center;
+  border-bottom: 1px solid #000;
+  height: 98px;
+  padding: 55px 10px 10px;
+  margin-bottom: 0;
+}
+.using-the-toolkit .curriculum .cb1 {
+  margin-right: 12px;
+}
+.using-the-toolkit .curriculum .cb1 h3 {
+  background: url(img/circle-header-black.svg) no-repeat 0 0;
+}
+.using-the-toolkit .curriculum .cb1 .button.black a {
+  padding: 6px 25px;
+}
+.using-the-toolkit .curriculum .cb2 {
+  margin-left: 12px;
+}
+.using-the-toolkit .curriculum .cb2 h3 {
+  background: url(img/circle-header-yellow.svg) no-repeat 0 0;
+}
+.using-the-toolkit .curriculum .cb2 .button.black a {
+  padding: 6px 15px;
+}
+.using-the-toolkit .curriculum .cb-body {
+  padding: 30px 30px 60px 30px;
+  background: #F2F2F2;
+  height: 712px;
+  position: relative;
+}
+.using-the-toolkit .curriculum .cb-body p, .using-the-toolkit .curriculum .cb-body ul {
+  font-size: 0.76em;
+  color: #000;
+}
+.using-the-toolkit .curriculum .cb-body p em, .using-the-toolkit .curriculum .cb-body ul em {
+  font-size: 1.25em;
+}
+.using-the-toolkit .curriculum .cb-body .cec-example p {
+  font-size: 0.66em;
+  font-style: italic;
+  padding-top: 25px;
+}
+.using-the-toolkit .curriculum .cb-body .cec-example img {
+  width: 162px;
+}
+.using-the-toolkit .curriculum .cb-body .button.black {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 390px;
+  margin-bottom: 60px;
+  font-size: 1em;
+}
+.using-the-toolkit .curriculum .note-language {
+  margin: 70px 0 90px;
+}
+.using-the-toolkit .curriculum .note-language h3 {
+  color: #fff;
+  border-bottom: 2px solid #fff;
+}
+.using-the-toolkit .curriculum .note-language p {
+  font-size: 0.86em;
+}
+.using-the-toolkit .curriculum .note-language p strong {
+  color: #f6d449;
+  font-weight: 500;
+}
+.using-the-toolkit .approach {
+  background: #fff;
+  padding-bottom: 140px;
+}
+.using-the-toolkit .approach h2, .using-the-toolkit .approach p {
+  color: #000;
+}
+.using-the-toolkit .approach h2 {
+  margin-top: 70px;
+}
+.using-the-toolkit .approach .approach-icons {
+  width: 450px;
+  margin: 0 auto;
+}
+.using-the-toolkit .approach .approach-icons .icon-overview-black {
+  width: 111px;
+  height: 78px;
+  margin-bottom: 40px;
+}
+.using-the-toolkit .approach .approach-icons .icon-toolkit-black {
+  width: 101px;
+  height: 83px;
+  margin-bottom: 35px;
+}
+
+.facilitating-lessons .top-resources {
+  width: 782px;
+  margin: 0 auto 80px;
+  background: #1C1717;
+  padding: 30px 50px;
+}
+.facilitating-lessons .top-resources h2 {
+  font-size: 1.38em;
+  border-top: none;
+  text-transform: none;
+  margin-bottom: 30px;
+  padding: 0;
+}
+.facilitating-lessons .top-resources img {
+  width: 168px;
+  margin-bottom: 20px;
+}
+.facilitating-lessons .top-resources p {
+  font-size: 0.81em;
+  margin-bottom: 15px;
+}
+.facilitating-lessons .faqs {
+  background: #fff;
+  padding: 70px 0;
+}
+.facilitating-lessons .faqs h2 {
+  border-top: 4px solid #AC3EA3;
+  color: #000;
+}
+.facilitating-lessons .faqs #accordion h3 {
+  background: url(img/icon-plus.svg) #F5E8F4 no-repeat 98% 19px;
+  background-size: 15px;
+  text-align: left;
+}
+.facilitating-lessons .faqs #accordion h3.ui-state-active {
+  background: url(img/icon-minus.svg) #F5E8F4 no-repeat 98% 26px;
+  background-size: 15px;
+}
+.facilitating-lessons .faqs #accordion .ui-accordion-content {
+  border: 1px solid #F5E8F4;
+}
+.facilitating-lessons .faqs #accordion .ui-accordion-content p {
+  color: #000;
+  text-align: left;
+  font-size: 1em;
+}
+.facilitating-lessons .faqs #accordion .ui-accordion-content p a {
+  color: #ab3ea2;
+}
+
+/** end Toolkit Styles **/
+/** Resources & Partners Styles **/
+.resources-partners h1 {
+  margin-bottom: 100px;
+}
+.resources-partners h2 {
+  border-top: 4px solid #69C9D9;
+}
+.resources-partners a {
+  color: #00ABC8;
+}
+.resources-partners #accordion h3 {
+  background: url(img/icon-plus.svg) #C3E9F0 no-repeat 98% 19px;
+  background-size: 15px;
+}
+.resources-partners #accordion h3.ui-state-active {
+  background: url(img/icon-minus.svg) #C3E9F0 no-repeat 98% 26px;
+  background-size: 15px;
+}
+.resources-partners #accordion .ui-accordion-content {
+  border: 1px solid #C3E9F0;
+}
+.resources-partners .contact {
+  background: #F2F2F2;
+  color: #F16268;
+}
+.resources-partners .contact p {
+  font-size: 1.14em;
+}
+.resources-partners .contact p strong {
+  font-weight: 700;
+}
+.resources-partners .contact .button a {
+  padding: 6px 15px;
+  color: #F16268;
+}
+.resources-partners .partners {
+  margin: 115px 0;
+}
+
+/** end Resources & Partners Styles **/
+footer {
+  background: #231F20;
+  padding: 75px 0 90px 0;
+}
+footer .copyright {
+  color: #fff;
+  font-size: 0.6em;
+  font-weight: 400;
+}
+footer .copyright img {
+  width: 295px;
+  position: relative;
+  left: -18px;
+  margin-bottom: 50px;
+}
+footer .copyright a {
+  color: #fff;
+  text-decoration: none;
+}
+footer .copyright a:hover {
+  text-decoration: underline;
+}
+
+.center {
+  text-align: center;
+}
+
+@media (min-width: 1200px) {
+  .limit {
+    max-width: 1140px;
+    margin: auto;
+  }
+
+  .limit1024 {
+    max-width: 1024px;
+    margin: auto;
+  }
+
+  .limit960 {
+    max-width: 960px;
+    margin: auto;
+  }
+}
+
+/*# sourceMappingURL=custom.css.map */
