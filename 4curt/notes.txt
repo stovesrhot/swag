@@ -1,4 +1,7 @@
-staging name:
+staging server:
+http://staging.swagtoolkit.com
+
+local dev:
 swagtoolkit.test
 
 required plugins:
