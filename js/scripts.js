@@ -32,11 +32,11 @@
 
             $.get('/wp-json/acf/v3/posts/' + lessonId).done(function(response) {
                 var fields = response.acf;
-                var $fieldElement = $('[data-field]');
+                var $fieldElement = $drawer.find('[data-field]');
 
                 $fieldElement.each(function(index, element) {
                     var field = $(element).data('field');
-					
+
                     switch(field) {
                         case 'synopsis':
                         	var fulltext = fields[field];
