@@ -32,7 +32,7 @@
 
             $.get('/wp-json/acf/v3/posts/' + lessonId).done(function(response) {
                 var fields = response.acf;
-                var $fieldElement = $drawer.find('[data-field]');
+                var $fieldElement = $drawer.find('[data-field]');
 
                 $fieldElement.each(function(index, element) {
                     var field = $(element).data('field');
@@ -44,8 +44,31 @@
                         	fields[field]=firstSentence+".</span></p>";
                         	break;
                         case 'Included':
+                            var html = '';
+
+                            $.each(fields[field], function (index, entry) {
+                                var iconSlug = entry.icon.toLowerCase();
+
+                                html += (
+                                    $('<li />')
+                                    .addClass('icon-' + iconSlug)
+                                    .text(function () {
+                                        if (iconSlug === 'pdf') {
+                                            return 'Lesson Plan';
+                                        }
+
+                                        if (iconSlug === 'slides') {
+                                            return 'Slides';
+                                        }
+                                    })
+                                    .html()
+                                );
+                            });
+
+                            fields[field] = html;
                         	break;
                     }
+
                     $(element).html(fields[field]);
                 });
 
