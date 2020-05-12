@@ -23,6 +23,7 @@
 			});
 		} );
 
+		//Toolkit Lesson Plan browser
 		$(".lesson-tile").click(function() {
             var $tile = $(event.currentTarget);
 			var drawerId = $tile.data('categoryId');
@@ -35,20 +36,25 @@
 
                 $fieldElement.each(function(index, element) {
                     var field = $(element).data('field');
-
-                    //switch(field) {
-                    //    case '':
-                    //}
+					
+                    switch(field) {
+                        case 'synopsis':
+                        	var fulltext = fields[field];
+                        	var firstSentence = fulltext.substr(0, fulltext.indexOf('.'));
+                        	fields[field]=firstSentence+".</span></p>";
+                        	break;
+                        case 'Included':
+                        	break;
+                    }
                     $(element).html(fields[field]);
                 });
 
-                console.log(fields)
+                //console.log(fields)
 
             });
 
 			$drawer.show( "slow", function(){
 				//Animation complete.
-				console.log('+');
 			});
 		});
 

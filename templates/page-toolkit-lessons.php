@@ -36,44 +36,56 @@
 				<div class="category-container">
 					<h2>Society & Culture</h2>
 					<p>Lessons about identifying community and developing support systems</p>
-          <div class="lessons-container">
+					<div class="lessons-container">
 
-<?php
-  $category_id = 7;
-  $lessons = get_posts( array('category'   => $category_id));
-?>
+					<?php
+					  $category_id = 7;
+					  $lessons = get_posts( array('category'   => $category_id));
+					?>
 
-<?php if ( $lessons ): ?>
-  <?php foreach ( $lessons as $lesson ) : setup_postdata( $lesson ); ?>
-    <div class="lesson-tile" data-category-id="<?= $category_id ?>" data-lesson-id="<?php echo $lesson->ID ?>"><?php the_title(); ?></div>
-  <?php endforeach; ?>
-  <?php wp_reset_postdata(); ?>
-<?php endif; ?>
-
-
-          <?php
-set_query_var('post_data', array(
-  'title' => get_the_title($lesson->ID),
-  'permalink' => get_the_permalink($lesson->ID),
-  'category_id' => 7,
-));
-            get_template_part( 'templates/content', 'drawer' );
-          ?>
-
+					<?php if ( $lessons ): ?>
+					  <?php foreach ( $lessons as $lesson ) : setup_postdata( $lesson ); ?>
+						<div class="lesson-tile" data-category-id="<?= $category_id ?>" data-lesson-id="<?php echo $lesson->ID ?>"><?php echo get_the_title($lesson->ID); ?></div>
+					  <?php endforeach; ?>
+					  <?php wp_reset_postdata(); ?>
+					<?php endif; ?>
 					</div>
+					
+				<?php
+				set_query_var('post_data', array(
+				  'title' => get_the_title($lesson->ID),
+				  'permalink' => get_the_permalink($lesson->ID),
+				  'category_id' => 7,
+				));
+				get_template_part( 'templates/content', 'drawer' );
+				?>
 				</div>
 
 				<div class="category-container">
 					<h2>Family & Relationships</h2>
 					<p>Lessons about social supports, and developing and maintaining relationships</p>
 					<div class="lessons-container">
-					<?php $args = array('category'   => 4);
-					set_query_var( 'args', $args);
+					<?php
+					  $category_id = 4;
+					  $lessons = get_posts( array('category'   => $category_id));
 					?>
 
-					<?php get_template_part( 'templates/content', 'drawer' ); ?>
-
+					<?php if ( $lessons ): ?>
+					  <?php foreach ( $lessons as $lesson ) : setup_postdata( $lesson ); ?>
+						<div class="lesson-tile" data-category-id="<?= $category_id ?>" data-lesson-id="<?php echo $lesson->ID ?>"><?php echo get_the_title($lesson->ID); ?></div>
+					  <?php endforeach; ?>
+					  <?php wp_reset_postdata(); ?>
+					<?php endif; ?>
 					</div>
+					
+				<?php
+				set_query_var('post_data', array(
+				  'title' => get_the_title($lesson->ID),
+				  'permalink' => get_the_permalink($lesson->ID),
+				  'category_id' => 4,
+				));
+				get_template_part( 'templates/content', 'drawer' );
+				?>
 				</div>
 
 			</div>

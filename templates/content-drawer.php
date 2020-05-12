@@ -7,9 +7,10 @@
     </div>
     <div class="col-6 details">
       <h4>Keywords</h4>
-      <?php echo $keywords ?>
+      <span data-field='keywords'></span>
       <h4>Includes</h4>
       <ul class="included">
+      <span data-field='Included'></span>
       <?php while( have_rows('Included') ): the_row();
         // vars
         $icon = get_sub_field('icon');
@@ -35,8 +36,8 @@
       <?php endwhile; ?>
       </ul>
       <h4>Group Size</h4>
-      <?php echo $group_size; ?>
+      <span data-field='group_size'></span>
       <h4>Time</h4>
-      <p><?php echo $time; ?></p>
+      <p data-field='time'></p>
     </div>
   </div>
