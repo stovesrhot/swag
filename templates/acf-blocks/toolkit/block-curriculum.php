@@ -51,7 +51,7 @@ $text = get_field('text') ?: 'Contact info';
 				<div class="curriculum-box cb1">
 					<h3>Adult Black Men</h3>
 					<div class="cb-body">
-						<p><em>Black MSM-oriented holistic sexuality education</em></p>
+						<p class="center"><em>Black MSM-oriented holistic sexuality education</em></p>
 						<p>Most lesson plans in the SWAG Toolkit contain activities meant to be delivered directly to Black men. To be clear, we are aware that Black men do not exist in social vacuums, which is to say that facilitators may be working with groups consisting of other people besides Black men, including both cisgender and transgender women. Some of the activities in the toolkit can be adjusted to facilitate the involvement of all genders. In those cases, however, we encourage facilitators to remain intentional in centering the issues and concerns of Black men, followed by LGBTQ+ Black people more broadly, as is useful to the group.</p>
 						
 						<p>Lessons are divided into six topics:</p>
@@ -63,7 +63,7 @@ $text = get_field('text') ?: 'Contact info';
 							<li>Identity & Personal Development</li>
 							<li>Discrimination & Bias</li>
 						</ul>
-						<p class="button black"><a href="/">View Standard Lessons</a></p>
+						<p class="button black"><a href="/lesson-plans#standard">View Standard Lessons</a></p>
 
 					</div>
 				</div>
@@ -72,7 +72,7 @@ $text = get_field('text') ?: 'Contact info';
 				<div class="curriculum-box cb2">
 					<h3>Client Experience Contributors</h3>
 					<div class="cb-body">
-						<p><em>provider-oriented competency training</em></p>
+						<p class="center"><em>Provider-oriented competency training</em></p>
 						<p>The SWAG Toolkit also contains activities for Client Experience Contributors (CECs) encountering, engaging, and supporting Black men in their work. This includes those supporting Black men in both community resource and healthcare settings who may be in the following roles:</p>
 						<ul>
 							<li>Medical providers</li>
@@ -92,7 +92,7 @@ $text = get_field('text') ?: 'Contact info';
 							</div>
 						</div>
 						
-						<p class="button black"><a href="/">View CEC Lessons</a></p>
+						<p class="button black"><a href="/lesson-plans#cec">View CEC Lessons</a></p>
 					</div>
 				</div>
 			</div>

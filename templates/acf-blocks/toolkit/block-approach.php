@@ -41,11 +41,11 @@ $approach_to_learning = get_field('approach_to_learning');
 	<div class="approach-icons row">
 	<div class="col-sm-6">
 		<img src="<?php echo get_template_directory_uri() ?>/img/icon-overview-black.svg" class="icon-overview-black" />
-		<p class="button black"><a href="">Read the Overview</a></p>
+		<p class="button black"><a href="/wp-content/uploads/2020/05/ISRC_SWAGOverview.pdf" target="_blank">Read the Overview</a></p>
 	</div>
 	<div class="col-sm-6">
 		<img src="<?php echo get_template_directory_uri() ?>/img/icon-toolkit-black.svg" class="icon-toolkit-black" />
-		<p class="button black"><a href="">Go to the Toolkit</a></p>
+		<p class="button black"><a href="/lesson-plans">Go to the Toolkit</a></p>
 	</div>
 	</div>
 

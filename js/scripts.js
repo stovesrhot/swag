@@ -25,14 +25,26 @@
 
 		//Toolkit Lesson Plan browser
 		$(".lesson-tile").click(function() {
+			$(".active-tile").removeClass("active-tile");
+			$(this).addClass("active-tile");
+			$(".drawer").hide( "slow", function(){
+				//Animation complete.
+			});
+			
             var $tile = $(event.currentTarget);
 			var drawerId = $tile.data('categoryId');
             var lessonId = $tile.data('lessonId');
 			var $drawer = $("#drawer-"+drawerId);
+			var drawerTitle = "#drawer-"+drawerId+" .drawer-title";
+			var drawerPermalink = "#drawer-"+drawerId+" a.drawer-permalink";
+			$.get('/wp-json/wp/v2/posts/' + lessonId).done(function(response) {
+				$(drawerTitle).html(response.title.rendered);
+				$(drawerPermalink).attr("href", response.link);
+			});
 
             $.get('/wp-json/acf/v3/posts/' + lessonId).done(function(response) {
                 var fields = response.acf;
-                var $fieldElement = $drawer.find('[data-field]');
+                var $fieldElement = $drawer.find('[data-field]');
 
                 $fieldElement.each(function(index, element) {
                     var field = $(element).data('field');
@@ -43,42 +55,103 @@
                         	var firstSentence = fulltext.substr(0, fulltext.indexOf('.'));
                         	fields[field]=firstSentence+".</span></p>";
                         	break;
+                        case 'favorite':
+                        	var favelink='<a class="simplefavorite-button" data-postid="'+ lessonId +'" data-siteid="1" data-groupid="1" data-favoritecount="0" style=""><i class="fave-off"></i> Add to Favorites</a>';
+                        	fields[field]=favelink;
+                        	break;
                         case 'Included':
-                            var html = '';
+                            var htmlcode = '';
 
                             $.each(fields[field], function (index, entry) {
                                 var iconSlug = entry.icon.toLowerCase();
 
-                                html += (
-                                    $('<li />')
-                                    .addClass('icon-' + iconSlug)
-                                    .text(function () {
+                                htmlcode += (
+                                    $('<li></li>')
+                                    .append(function () {
                                         if (iconSlug === 'pdf') {
-                                            return 'Lesson Plan';
+                                            return '<li class="icon-pdf">Lesson Plan</li>';
                                         }
 
                                         if (iconSlug === 'slides') {
-                                            return 'Slides';
+                                            return '<li class="icon-slides">Slides</li>';
                                         }
                                     })
                                     .html()
                                 );
                             });
-
-                            fields[field] = html;
+							
+							
+                            fields[field] = $.parseHTML(htmlcode);
                         	break;
                     }
 
                     $(element).html(fields[field]);
                 });
 
-                //console.log(fields)
+                console.log(fields)
 
             });
 
 			$drawer.show( "slow", function(){
 				//Animation complete.
 			});
+		});
+		
+		//Scroll thru Lessons arrows
+		$(".lesson-arrow-right").click(function(){
+			var $tile = $(event.currentTarget);
+			var drawerId = $tile.data('categoryId');
+			var $catId = ".cat"+drawerId;
+			var section1 = "#cat"+drawerId+"-section1";
+			var section2 = "#cat"+drawerId+"-section2";
+			$(section1).animate({
+				left:"-1100px"
+				}, function(){
+				//Animation complete.
+			});
+			$(section2).animate({
+				left:"-1100px"
+				}, function(){
+				//Animation complete.
+			});
+			$($catId + " .lesson-arrow-left").show();
+			$($catId + " .lesson-arrow-right").hide();
+		});
+		
+		$(".lesson-arrow-left").click(function(){
+			var $tile = $(event.currentTarget);
+			var drawerId = $tile.data('categoryId');
+			var $catId = ".cat"+drawerId;
+			var section1 = "#cat"+drawerId+"-section1";
+			var section2 = "#cat"+drawerId+"-section2";
+			$(section1).animate({
+				left:"0px"
+				}, function(){
+				//Animation complete.
+			});
+			$(section2).animate({
+				left:"0px"
+				}, function(){
+				//Animation complete.
+			});
+			$($catId + " .lesson-arrow-left").hide();
+			$($catId + " .lesson-arrow-right").show();
+		});
+		
+		//Smooth-scrolling
+		$(function() {
+		  $('a[href*="#"]:not([href="#"])').click(function() {
+			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			  var target = $(this.hash);
+			  target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			  if (target.length) {
+				$('html, body').animate({
+				  scrollTop: target.offset().top
+				}, 500);
+				return false;
+			  }
+			}
+		  });
 		});
 
 	});

@@ -52,14 +52,15 @@ font-style: italic;
 
 **/
 
-$itemGrow: 1.2;
+$itemGrow: 1.05;
 $duration: 250ms;
 
 $color-salmon:#F16268;
-$color-lightblue:#00ABC8;
-$color-lighterblue:#69C9D9;
+$color-blue:#00ABC8;
+$color-lightblue:#69C9D9;
 $color-yellow:#f6d449;
 $color-gold:#FFB607;
+$color-grey:#231F20;
 
 html {
 	scroll-behavior: smooth;
@@ -78,10 +79,10 @@ body {
 
 h1 {
 	font-size: 2.19em;
-    color: #231F20;
+    color: $color-grey;
     padding-top: 43px;
     padding-bottom: 0px;
-    border-bottom: 4px solid $color-lightblue;
+    border-bottom: 4px solid $color-blue;
     font-weight: 700;
     text-transform: uppercase;
     display: inline-block;	
@@ -123,46 +124,6 @@ p + ul, p + ol {
 
 strong {
 	font-weight:500;
-}
-
-.limit, .limit960, .limit1024 {
-	max-width:100%;
-	margin:auto;
-	padding-left:20px;
-	padding-right:20px;
-	position:relative;
-}
-
-.limit960 {
-	text-align:left;
-}
-
-#accordion {
-	margin-bottom:70px;
-	h3 {
-		display:block;
-		background:url(img/icon-plus.svg) #C3E9F0 no-repeat 98% 19px;
-		background-size:15px;
-		border-bottom:none;
-		font-size:1.14em;
-		font-weight:500;
-		text-transform:none;
-		padding:12px 30px;
-		margin-bottom:0;
-		margin-top:15px;
-		cursor:pointer;
-	}
-	h3.ui-state-active {
-		background:url(img/icon-minus.svg) #C3E9F0 no-repeat 98% 26px;
-		background-size:15px;
-	}
-	.ui-accordion-content {
-		border:1px solid #C3E9F0;
-		padding:35px 30px;
-		p {
-			font-size:.86em;
-		}
-	}
 }
 
 header {
@@ -270,10 +231,14 @@ header {
 	}
 	/** end .nav **/
 
-	form.search {
-		display:inline-block;
+	.header-tools {
 		position:absolute;
 		right:0;
+		display:inline-block;
+	}
+	
+	form.search {
+		display:inline-block;
 		
 		.search-submit {
 			display:none;
@@ -284,9 +249,12 @@ header {
 			width:235px;
 		}
 	}
-	#search-icon {
+	#search-icon, #settings-icon {
 		width:25px;
 		float:right;
+	}
+	#settings-icon {
+		margin-left:20px;
 	}
 
 }
@@ -294,6 +262,85 @@ header {
 
 main {
 	padding-top:170px;
+	background: url(img/bkg-pattern.svg) no-repeat 0 170px;
+	background-position-x:center;
+	background-size: 2920px;
+}
+
+.limit, .limit960, .limit1024 {
+	max-width:100%;
+	margin:auto;
+	padding-left:20px;
+	padding-right:20px;
+	position:relative;
+}
+
+.limit960 {
+	text-align:left;
+}
+
+.anchor-link {
+	position:relative;
+	top:-180px;
+	visibility:hidden;
+}
+
+#accordion {
+	margin-bottom:70px;
+	h3 {
+		display:block;
+		background:url(img/icon-plus.svg) #C3E9F0 no-repeat 98% 19px;
+		background-size:15px;
+		border-bottom:none;
+		font-size:1.05em;
+		font-weight:500;
+		text-transform:none;
+		padding:12px 30px;
+		margin-bottom:0;
+		margin-top:15px;
+		cursor:pointer;
+	}
+	h3.ui-state-active {
+		background:url(img/icon-minus.svg) #C3E9F0 no-repeat 98% 26px;
+		background-size:15px;
+	}
+	.ui-accordion-content {
+		border:1px solid #C3E9F0;
+		padding:35px 30px;
+		p {
+			font-size:.86em;
+		}
+	}
+}
+
+.promo-box {
+	margin:45px 110px 60px;
+	padding:50px 20px 20px;
+	background:$color-blue;
+	color:#fff;
+	text-align:center;
+	
+	h3 {
+		color:#fff;
+		text-transform:none;
+		padding:0;
+		border-bottom:none;
+		font-weight:500;
+		font-size:1.05em;
+	}
+	p {
+		font-size:.81em;
+	}
+	p.button a {
+		border:1px solid #fff;
+		color:#fff;
+		font-size:.88em;
+		padding:6px 25px;
+		&:hover{
+			color:$color-blue !important;
+			background-color:#fff;
+		}
+	}
 }
 
 /** Homepage Styles **/
@@ -358,9 +405,9 @@ main {
 		font-weight:900;
 		font-size:.7em;
 		text-transform:uppercase;
-		border-bottom:2px solid #231F20;
+		border-bottom:2px solid $color-grey;
 		padding:12px 0;
-		color:#231F20;
+		color:$color-grey;
 		display:inline-block;
 		margin-bottom:25px;
 	}
@@ -373,7 +420,7 @@ main {
 }
 
 .photo-left {
-	margin-bottom:60px;
+	margin:70px 0 100px;
 	
 	img {
 		margin-right:50px;
@@ -382,9 +429,11 @@ main {
 
 .contact {
 	background:#e0ece7;
-	text-align:center;
 	padding:50px 0 30px 0;
 	margin-top:70px;
+	.limit {
+		text-align:center;
+	}
 	
 	img {
 		width:86px;
@@ -428,7 +477,30 @@ main {
 	color:#fff !important;
 }
 
+.button.blue a {
+	border:1px solid #69c8d8;
+	color:#69c8d8;
+}
+
+.button.blue a:hover {
+	background: #69c8d8;
+	color:#fff !important;
+}
+
 /** Lesson Page Styles **/
+
+.single { 
+	#menu-item-25 {
+		border-bottom: 4px solid $color-salmon;
+		.sub-menu {
+			display:block;
+			#menu-item-21 a {
+				border-bottom:4px solid #fff;
+			}
+		}
+	}
+	
+}
 
 .post {
 	padding-top:90px;
@@ -436,9 +508,57 @@ main {
 	.limit {
 		padding-right:180px;
 	}
+	
+	.lesson-tools {
+		color:#5E5E5E;
+		img {
+			height:13px;
+		}
+		ul {
+			text-align:right;
+		}
+		li {
+			font-size:.7em;
+			text-transform:uppercase;
+			list-style-type:none;
+			display:inline-block;
+			margin-left:15px;
+			cursor:pointer;
+			padding:5px;
+			
+			a {
+				color:#5e5e5e;
+			}
+			&:hover {
+				text-decoration:underline;
+			}
+		}
+		i {
+			height: 13px;
+			width: 13px;
+			display: inline-block;
+			position: relative;
+			top:2px;
+			padding:5px 0;
+			margin-right:3px;
+		}
+		.fave-on {
+			background:url(img/icon-tools-fave-on.svg) no-repeat 0 0;
+		}
+		.fave-off {
+			background:url(img/icon-tools-fave-off.svg) no-repeat 0 0;
+		}
+		.icon-share {
+			background:url(img/icon-tools-share.svg) no-repeat 0 0;
+		}
+		.icon-review {
+			background:url(img/icon-tools-review.svg) no-repeat 0 0;
+		}
+		
+	}
 		
 	.theme {
-		color:$color-lighterblue;
+		color:$color-lightblue;
 		font-size:0.78em;
 		font-weight:400;
 		text-transform:uppercase;
@@ -470,8 +590,8 @@ main {
 		margin-bottom:80px;
 		
 		h3 {
-			color:$color-lightblue;
-			border-bottom:2px solid $color-lightblue;
+			color:$color-blue;
+			border-bottom:2px solid $color-blue;
 		}
 
 		.leftcol {
@@ -483,8 +603,6 @@ main {
 		}
 		
 		.included {
-			padding:0;
-			list-style-type:none;
 			
 			a {
 				font-weight:400;
@@ -496,16 +614,6 @@ main {
 					font-size:1.125em;
 				}
 			}
-			
-			li.icon-pdf {
-				background:url(img/icon-pdf.svg) no-repeat 3px 0;
-				padding-left:40px;
-			}
-			li.icon-slides {
-				background:url(img/icon-slides.svg) no-repeat 0 0;
-				padding-left:40px;
-				margin-top:15px;
-			}
 		}
 		.button a {
 			padding:6px 20px;
@@ -516,13 +624,47 @@ main {
 	.feedback {
 		background-color:#FCE0E1;
 		padding:70px 0 120px;
+		
+		.limit {
+			padding-right:20px;
+		}
+		p {
+			margin-bottom:30px;
+			color:$color-grey;
+		
+			&.button a {
+				font-size:.83em;
+			}
+			&.quote {
+				font-size:1.14em;
+			}
+			&.credit {
+			}
+		}
+		.col-sm-6 {
+			padding-right:100px;
+		}
 	}
 }
 /** end Lesson Page Styles **/
 
+.included {
+	padding:0;
+	list-style-type:none;
+	li.icon-pdf {
+		background:url(img/icon-pdf.svg) no-repeat 4px 0;
+		padding-left:40px;
+	}
+	li.icon-slides {
+		background:url(img/icon-slides.svg) no-repeat 0 0;
+		padding-left:40px;
+		margin-top:15px;
+	}
+}
+
 /** Toolkit Styles **/
 .toolkit-body {
-	background-color:#231F20;
+	background-color:$color-grey;
 	text-align:center;
 
 	.toolkit-title {
@@ -555,7 +697,7 @@ main {
 	.toolkit-box {
 		background-color:#1C1717;
 		padding:40px;
-		margin-bottom:55px;
+		text-align:center;
 		
 		h2 {
 			font-size:1.38em;
@@ -563,41 +705,142 @@ main {
 			text-transform:none;
 			font-weight:400;
 			border-top:none;
+			padding:0 0 10px 0;
 		}
-	}
-	
-	.category-container {
-		text-align:left;
-		margin-bottom:70px;
-		
-		.lessons-container {
-			.lesson-tile {
-				width:204px;
-				height:264px;
-				background:url(img/lesson-tile.svg) no-repeat 0 0;
-				font-size:1.14em;
-				font-weight:500;
-				padding:75px 15px 15px;
-				
-				a {
-					color:#000;
-				}
+		img {
+			width:155px;
+			height:120px;
+		}
+		.button {
+			
+			a {
+				display:block;
+				margin:20px auto;
+			}
+			
+			&.tk1 a{
+				width:155px;
+			}
+			&.tk2 a{
+				width:184px;
+			}
+			&.tk3 a{
+				width:168px;
+			}
+			&.tk4 a{
+				width:189px;
 			}
 		}
 	}
 }
 
+p.smallp {
+	font-size:.76em;
+	padding:0 20px;
+}
+
 .tour {
 	background:#1C1717;
 	padding:45px;
+	text-align:center!important;
+}
+
+.lessons-anchors{
+	font-size:.66em;
+	font-weight:400;
+	color:#5E5E5E;
+	text-align:left;
+	margin:55px 0 45px;
+	text-transform:uppercase;
+	strong {
+		font-weight:900;
+		color:$color-salmon;
+	}
+	a {
+		font-weight:300;
+		color:#5E5E5E;
+		&:hover{
+			color:$color-salmon;
+		}
+	}
+}
+
+.category-container {
+	text-align:left;
+	margin-bottom:70px;
+	position:relative;
+	
+	.lesson-arrow-right {
+		top:290px; bottom:0; right:-28px;
+		z-index:10;
+	}
+	.lesson-arrow-left {
+		top:290px; bottom:0; left:-35px;
+		display:none;
+	}
+	.lesson-arrow-left, .lesson-arrow-right {
+		position:absolute;
+		z-index:10;
+		img {
+			width:56px;
+			height:56px;
+		}
+	}
+	
+	.lessons-container {
+		display:grid;
+		grid-template-columns: repeat(2,100%);
+		overflow:hidden;
+		scroll-behavior:smooth;
+		
+		section {
+			width:100%;
+			position:relative;
+			display:grid;
+			grid-template-columns: repeat(5, 220px);
+			margin:20px 0;
+		}
+	}
+}
+
+.lesson-tile {
+	width:204px;
+	height:264px;
+	background:url(img/lesson-tile.svg) #fff no-repeat 0 0;
+	font-size:1.14em;
+	font-weight:500;
+	padding:75px 12px 15px 15px;
+	transition: $duration all;
+	cursor:pointer;
+	margin:0 5px 15px;
+	line-height: 1.3;
+	text-align:left;
+	
+	&:hover {
+		transform:scale(1.05);
+	}
+	
+	&.active-tile {
+		transform:scale(1.05);
+		padding: 71px 8px 11px 11px;
+		border:4px solid $color-gold;
+	}
+	
+	&.cec {
+		background:url(img/lesson-tile-cec.svg) #fff no-repeat 0 0;
+	}
+					
+	a {
+		color:#000;
+	}
 }
 
 .drawer {
 	display:none;
 	color:#fff;
-	border-top:1px solid $color-lighterblue;
+	border-top:1px solid $color-lightblue;
 	padding:50px 0;
-	margin:40px;
+	margin:25px 40px;
 	
 	h3 {
 		color:#fff;
@@ -608,7 +851,7 @@ main {
 	}
 	
 	h4 {
-		color:$color-lightblue;
+		color:$color-blue;
 		font-size:0.57em;
 		text-transform:uppercase;
 		font-weight:900;
@@ -616,16 +859,47 @@ main {
 	
 	p {
 		font-size:.86em;
+		margin-right:20px;
+		display:inline-block;
 	}
 	p.button a {
 		color:$color-gold;
 		border:1px solid $color-gold;
+		cursor: pointer;
+	}
+	p.button a:hover {
+		color:#fff;
+		background-color:$color-gold;
 	}
 	.details {
 		p, li {
-			color:$color-lightblue;
+			color:$color-blue;
 			font-size:0.76em;
 		}
+	}
+}
+
+#cec-row {
+	//background: url(img/bkg-pattern.svg) #333 no-repeat 0 0;
+	background-color:#333;
+	background-position-x:center;
+	background-size: 2920px;
+	padding:50px 0;
+	.category-container .lessons-container section .lesson-tile {
+		background:url(img/lesson-tile-cec.svg) #fff no-repeat 0 0;
+	}
+	
+	.lessons-anchors a {
+		color:#aeaeae;
+		&:hover {
+			color:$color-salmon;
+		}
+	}
+}
+
+.related-lessons {
+	h2{
+		color:#fff;
 	}
 }
 
@@ -703,6 +977,13 @@ main {
 				color:#000;
 				em {
 					font-size:1.25em;
+					font-weight:500;
+				}
+			}
+			ul {
+				padding-left:20px;
+				li {
+					margin-bottom:3px;
 				}
 			}
 			.cec-example {
@@ -710,6 +991,7 @@ main {
 					font-size:.66em;
 					font-style:italic;
 					padding-top:25px;
+					padding-left:20px;
 				}
 				
 				img {
@@ -784,6 +1066,7 @@ main {
 			text-transform:none;
 			margin-bottom:30px;
 			padding:0;
+			font-weight:400;
 		}
 		img {
 			width:168px;
@@ -829,6 +1112,60 @@ main {
 	}
 }
 
+.my-toolkit {
+	.top-box {
+		width:782px;
+		margin:0 auto 80px;
+		background:#1C1717;
+		padding:30px 50px;
+		color:#fff;
+		img {
+			width: 155px;
+    		height: 120px;
+    	}
+	}
+	h2 {
+		border-top:4px solid $color-blue;
+	}
+	.favorites-container{
+		margin-bottom:80px;
+		position:relative;
+		color:#fff;
+		display:grid;
+		grid-template-columns: repeat(5, 220px);
+		p {
+			font-weight:500;
+		}
+	}
+	
+	.review {
+		background-color:#C3E9F0;
+		padding:75px 0;
+		color:#000;
+		h2 {
+			color:#000;
+		}
+		p {
+			color:#000;
+			a {
+				color:#000;
+				text-decoration:underline;
+			}
+			&.button a {
+				text-decoration:none;
+			}
+		}
+	}
+	.edit-profile {
+		background-color:#ececec;
+		padding:75px 0;
+		color:#000;
+		h2 {
+			color:#000;
+		}
+	}
+}
+
 /** end Toolkit Styles **/
 
 /** Resources & Partners Styles **/
@@ -838,11 +1175,11 @@ main {
 		margin-bottom:100px;
 	}
 	h2 {
-		border-top:4px solid $color-lighterblue;
+		border-top:4px solid $color-lightblue;
 	}
 	
 	a {
-		color:$color-lightblue;
+		color:$color-blue;
 	}
 	#accordion {
 		h3 {
@@ -856,6 +1193,7 @@ main {
 		}
 		.ui-accordion-content {
 			border:1px solid #C3E9F0;
+			background-color:#fff;
 		}
 	}
 	
@@ -881,9 +1219,67 @@ main {
 
 /** end Resources & Partners Styles **/
 
+/** Form Styles **/
+
+.wpforms-container {
+	width:600px;
+	margin:30px auto 50px;
+}
+
+.login-message {
+	margin:40px 0 100px;
+	text-align:center;
+}
+
+.wpforms-submit-container button {
+	border:1px solid  #69c8d8;
+	background-color: #69c8d8;
+	color:#fff;
+	&:hover {
+		background-color:#fff;
+		color:#69c8d8;
+	}
+}
+
+.account {
+	background-color: #231F20;
+	color:#fff;
+	h1 {
+		color:#fff;
+		font-size: 1.38em;
+		font-weight: 700;
+		border-top: 4px solid $color-blue;
+		display: inline-block;
+		text-transform: uppercase;
+		padding: 30px 0;
+		border-bottom:0;
+		margin-top:40px;
+	}
+}
+
+.message-window {
+	background: #e0ece7;
+    padding: 50px 0 30px 0;
+    margin-top: 70px;
+    .limit {
+    	text-align:center;
+    }
+    p {
+    	color:#000;
+    }
+    a {
+    	color:#000;
+    	text-decoration:underline;
+    }
+}
+/** end Form Styles **/
+
+
 footer {
-	background:#231F20;
+	background:url(img/bkg-pattern.svg) $color-grey no-repeat 0 0;
 	padding:75px 0 90px 0;
+	background-size:2920px;
+	background-position-x:center;
 	
 	.copyright {
 		color:#fff;
@@ -918,15 +1314,18 @@ footer {
 	.limit {
 		max-width:1140px;
 		margin:auto;
+		text-align:left;
 	}
 	
 	.limit1024 {
 		max-width:1024px;
 		margin:auto;
+		text-align:left;
 	}
 	
 	.limit960 {
 		max-width:960px;
 		margin:auto;
+		text-align:left;
 	}
 }

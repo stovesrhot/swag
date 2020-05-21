@@ -1,0 +1,1 @@
+<?php the_favorites_button($post_id, $site_id); ?>

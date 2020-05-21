@@ -101,7 +101,7 @@ function html5blank_header_scripts()
         wp_register_script('jqueryui', 'https://code.jquery.com/ui/1.12.1/jquery-ui.js', array('jquery'), '1.12.1'); // Modernizr
         wp_enqueue_script('jqueryui'); // Enqueue it!
 
-        wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
+        wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery','favorites'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
     }
 }
@@ -358,7 +358,7 @@ add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditi
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
-add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
+//add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
 
@@ -576,6 +576,29 @@ function register_acf_block_types() {
 if( function_exists('acf_register_block_type') ) {
     add_action('acf/init', 'register_acf_block_types');
 }
+
+/**
+ * Automatically log in user after registration form is submitted.
+ *
+ * @link https://wpforms.com/developers/automatically-log-in-users-after-registration/
+ *
+ */
+function wpf_dev_autologin( $user_id, $fields, $form_data, $userdata ) {
+ 
+    if ( empty( $userdata['user_login'] ) || empty( $userdata['user_pass'] ) ) {
+        return;
+    }
+ 
+    wp_signon( 
+        array(
+            'user_login'    => $userdata['user_login'],
+            'user_password' => $userdata['user_pass'],
+            'remember'      => false,
+        )
+    );
+}
+add_action( 'wpforms_user_registered', 'wpf_dev_autologin', 10, 4 );
+
 
 /*------------------------------------*\
 	ShortCode Functions

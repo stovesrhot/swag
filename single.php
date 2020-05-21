@@ -31,7 +31,18 @@
 			?>
 			
 			<!-- begin lesson -->
-			<p class="theme">Theme: <strong><?php foreach((get_the_category()) as $category){echo $category->name;} ?></strong></p>
+			<div class="row no-gutters lesson-tools">
+				<div class="col-sm-6">
+					<p class="theme">Theme: <strong><?php foreach((get_the_category()) as $category){echo $category->name;} ?></strong></p>
+				</div>
+				<div class="col-sm-6">
+				<ul>
+					<li><i class="icon-share"></i><a href="#">Share</a></li>
+					<li><i class="icon-review"></i><a href="https://widener.qualtrics.com/jfe/form/SV_bg9V6CGgbBUOKBD" target="_blank">Review</a></li>
+					<li><?php the_favorites_button($post_id, $site_id); ?></li>
+				</ul>
+				</div>
+			</div>
 			
 			<h1><?php the_title(); ?></h1>
 			<p class="author">by <?php echo $author; ?></p>
@@ -40,6 +51,7 @@
 			<div class="row no-gutters lesson-details">
 				<div class="col-md-6 leftcol">
 					<h3>Objectives</h3>
+					<p>By the end of this lesson, participants will be able to:</p>
 					<?php echo $objectives; ?>
 			
 					<h3>Included in this Lesson</h3>
@@ -99,14 +111,35 @@
 		<div class="feedback">
 			<div class="limit">
 				<h2>Reviews</h2>
+				
+				<div class="row">
+					<?php if ( have_rows('feedback')):
+						while( have_rows('feedback')): the_row();
+						//vars
+						$quote = get_sub_field('quote');
+						$credit = get_sub_field('credit');
+						if($quote){
+					?>
+					<div class="col-sm-6">
+						<h3>facilitator feedback</h3>
+						<p class="quote">&ldquo;<?php echo $quote; ?>&rdquo;</p>
+						<p class="credit">-<?php echo $credit; ?></p>
+					</div>
+					<?php 
+						}
+						endwhile;
+					endif;
+					 ?>
+					<div class="col-sm-6">
+						<h3>Write a Review</h3>
+						<p>Did you facilitate this lesson? Share your thoughts with other facilitators.</p>
+						<p class="button black"><a href="https://widener.qualtrics.com/jfe/form/SV_bg9V6CGgbBUOKBD" target="_blank">Review a Lesson</a></p>
+					</div>
+				</div>
+				
 			</div>
 		</div>
-
-
-			<?php the_content(); // Dynamic Content ?>
-
-			<?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
-
+					
 			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
 	
 		</article>

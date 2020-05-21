@@ -26,12 +26,24 @@ if( !empty($block['align']) ) {
 
 // Load values and assign defaults.
 $h2title = get_field('h2title');
+$paragraph = get_field('paragraph');
+$promo_box = get_field('promo_box');
 $region = get_field('region');
 ?>
 
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
 	<div class="limit960">
 		<h2><?php echo $h2title; ?></h2>
+		<?php 
+		if ($paragraph) {echo $paragraph;}
+		if ($promo_box['title']):?>
+		<div class="promo-box">
+			<h3><?php echo $promo_box['title']?></h3>
+			<p><?php echo $promo_box['text']?></p>
+			<p class="button"><a href="<?php echo $promo_box['email'] ?>">Email Us</a></p>
+		</div>
+		<?php endif; ?>
+		
     </div>
     <div class="limit1024">
     <?php if( have_rows('region') ): ?>

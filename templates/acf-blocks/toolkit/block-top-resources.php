@@ -35,7 +35,7 @@ if( !empty($block['align']) ) {
 			// vars
 			$title = get_sub_field('title');
 			$cover = get_sub_field('cover');
-			$link = get_sub_field('');
+			$link = get_sub_field('link');
 			?>
 			<div class="col-4">
 			<?php if( !empty( $cover ) ): ?>

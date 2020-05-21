@@ -45,8 +45,10 @@
 						<?php html5blank_nav(); ?>
 					</nav>
 					<!-- /nav -->
-				
-					<?php get_template_part('searchform'); ?>
+					<div class="header-tools">
+						<?php get_template_part('searchform'); ?>
+						<a href="/log-in"><img src="<?php echo get_template_directory_uri() ?>/img/icon-settings.svg" id="settings-icon" /></a>
+					</div>
 				</div>
 				</div>
 			</header>
