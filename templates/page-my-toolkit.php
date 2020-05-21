@@ -60,7 +60,7 @@
 				$filters = array(
 				  'terms' => array(
 					'category' => array(
-					  'cec' 
+					  'cecs' 
 					)
 				  )
 				);
