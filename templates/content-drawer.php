@@ -5,7 +5,9 @@
       <h3 class="drawer-title"></h3>
       <span data-field='synopsis'></span>
       <p class="button"><a href="" class="drawer-permalink">Learn More</a></p>
-      <p class="button" data-field="favorite"></p>
+      <p class="button" data-field="favorite">
+        <?php # special case where all buttons are injected dynamically ?>
+      </p>
     </div>
     <div class="col-6 details">
     	<div class="row">

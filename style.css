@@ -3,7 +3,7 @@
 	Theme URI: http://html5blank.com
 	Description: Custom theme based on HTML5 Blank WordPress Theme
 	Version: 1.4.3
-	
+
 	License: MIT
 	License URI: http://opensource.org/licenses/mit-license.php
 */
@@ -26,6 +26,11 @@
 html {
 }
 body {
+}
+/* visually hidden */
+.visually-hidden {
+   position: absolute;
+   left: -99999px;
 }
 /* clear */
 .clear:before,

@@ -18,7 +18,7 @@
 
 			<!-- article -->
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			
+
 			<div class="top-box">
 			<?php if (is_user_logged_in()) {
 				$user_info = get_userdata(get_current_user_id());
@@ -52,19 +52,19 @@
 				</div>
 			<?php } ?>
 			</div>
-			
-			<div class="limit">			
+
+			<div class="limit">
 				<a id="favorites" class="anchor-link"></a>
 				<h2>Favorites</h2>
-				<?php 
+				<?php
 				$filters = array(
 				  'terms' => array(
 					'category' => array(
-					  'cecs' 
+					  'cecs'
 					)
 				  )
 				);
-				the_user_favorites_list($user_id = null, $site_id = null, $include_links = true, $filters = null);
+				the_user_favorites_list(null, null, true, $filters);
 				 ?>
 			</div>
 
@@ -76,7 +76,7 @@
 					<p class="button black"><a href="https://widener.qualtrics.com/jfe/form/SV_bg9V6CGgbBUOKBD" target="_blank">Write a Review</a></p>
 				</div>
 			</div>
-			
+
 			<div class="edit-profile">
 				<a id="edit" class="anchor-link"></a>
 				<div class="limit">

@@ -24,19 +24,31 @@
 		} );
 
 		//Toolkit Lesson Plan browser
+
+        // Takes all hidden favorite buttons and jams them in the drawer. On
+        // click of the lesson the proper button is found and visually un-hidden
+        $('[data-hidden-favorite-button]').each(function (index, button) {
+            var lessonId = $(button).data('hiddenFavoriteButton');
+            var categoryId = $(button).data('hiddenFavoriteButtonTo');
+            var $drawer = $('#drawer-' + categoryId);
+
+            $('.button[data-field]', $drawer).append(button);
+        });
+
 		$(".lesson-tile").click(function() {
 			$(".active-tile").removeClass("active-tile");
 			$(this).addClass("active-tile");
 			$(".drawer").hide( "slow", function(){
 				//Animation complete.
 			});
-			
+
             var $tile = $(event.currentTarget);
 			var drawerId = $tile.data('categoryId');
             var lessonId = $tile.data('lessonId');
 			var $drawer = $("#drawer-"+drawerId);
 			var drawerTitle = "#drawer-"+drawerId+" .drawer-title";
 			var drawerPermalink = "#drawer-"+drawerId+" a.drawer-permalink";
+
 			$.get('/wp-json/wp/v2/posts/' + lessonId).done(function(response) {
 				$(drawerTitle).html(response.title.rendered);
 				$(drawerPermalink).attr("href", response.link);
@@ -54,10 +66,6 @@
                         	var fulltext = fields[field];
                         	var firstSentence = fulltext.substr(0, fulltext.indexOf('.'));
                         	fields[field]=firstSentence+".</span></p>";
-                        	break;
-                        case 'favorite':
-                        	var favelink='<a class="simplefavorite-button" data-postid="'+ lessonId +'" data-siteid="1" data-groupid="1" data-favoritecount="0" style=""><i class="fave-off"></i> Add to Favorites</a>';
-                        	fields[field]=favelink;
                         	break;
                         case 'Included':
                             var htmlcode = '';
@@ -79,24 +87,31 @@
                                     .html()
                                 );
                             });
-							
-							
+
+
                             fields[field] = $.parseHTML(htmlcode);
                         	break;
                     }
 
                     $(element).html(fields[field]);
+
+                    // Finds all of the injected, hidden favorite buttons and
+                    // shows the proper one, per lesson drawer expansion
+                    if ($(element).is('[data-field=favorite]')) {
+                        $(element)
+                            .children()
+                            .addClass('visually-hidden')
+                                .filter('[data-hidden-favorite-button=' + lessonId + ']')
+                                .removeClass('visually-hidden');
+                    }
                 });
-
-                console.log(fields)
-
             });
 
 			$drawer.show( "slow", function(){
 				//Animation complete.
 			});
 		});
-		
+
 		//Scroll thru Lessons arrows
 		$(".lesson-arrow-right").click(function(){
 			var $tile = $(event.currentTarget);
@@ -117,7 +132,7 @@
 			$($catId + " .lesson-arrow-left").show();
 			$($catId + " .lesson-arrow-right").hide();
 		});
-		
+
 		$(".lesson-arrow-left").click(function(){
 			var $tile = $(event.currentTarget);
 			var drawerId = $tile.data('categoryId');
@@ -137,7 +152,7 @@
 			$($catId + " .lesson-arrow-left").hide();
 			$($catId + " .lesson-arrow-right").show();
 		});
-		
+
 		//Smooth-scrolling
 		$(function() {
 		  $('a[href*="#"]:not([href="#"])').click(function() {
