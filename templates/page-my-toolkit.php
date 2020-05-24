@@ -64,7 +64,7 @@
 					)
 				  )
 				);
-				the_user_favorites_list($user_id = null, $site_id = null, $include_links = true, $filters = $filters);
+				the_user_favorites_list($user_id = null, $site_id = null, $include_links = true, $filters = null);
 				 ?>
 			</div>
 
@@ -81,10 +81,9 @@
 				<a id="edit" class="anchor-link"></a>
 				<div class="limit">
 					<h2>Edit Profile</h2>
+					<?php the_content(); ?>
 				</div>
 			</div>
-
-				<?php the_content(); ?>
 
 				<?php edit_post_link(); ?>
 
