@@ -21,6 +21,8 @@
             tests: {}
         });
         </script>
+        
+        <script src="https://kit.fontawesome.com/ed16cfa399.js" crossorigin="anonymous"></script>
 
 	</head>
 	<body <?php body_class(); ?>>
@@ -34,11 +36,12 @@
 				<div class="limit">
 					<!-- logo -->
 					<div class="logo">
-						<a href="<?php echo home_url(); ?>">
-							<img src="<?php echo get_template_directory_uri() ?>/img/swag-logo.svg" alt="SWAG: Lessons in Sexual Wellness and Growth" class="logo-img" />
-						</a>
+						<a href="<?php echo home_url(); ?>" class="logo-img">SWAG: Lessons in Sexual Wellness and Growth</a>
 					</div>
 					<!-- /logo -->
+
+					<!-- Mobile Nav Button -->
+					<img src="<?php echo get_template_directory_uri() ?>/img/menu-m.svg" id="mobile-nav" />
 
 					<!-- nav -->
 					<nav class="nav" role="navigation">
@@ -47,7 +50,7 @@
 					<!-- /nav -->
 					<div class="header-tools">
 						<?php get_template_part('searchform'); ?>
-						<a href="/log-in"><img src="<?php echo get_template_directory_uri() ?>/img/icon-settings.svg" id="settings-icon" /></a>
+						<?php if (is_user_logged_in()) {?><a href="/my-toolkit"><?php } else { ?><a href="/log-in"><?php } ?><img src="<?php echo get_template_directory_uri() ?>/img/icon-settings.svg" id="settings-icon" /></a>
 					</div>
 				</div>
 				</div>

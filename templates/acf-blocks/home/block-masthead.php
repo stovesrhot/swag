@@ -40,6 +40,6 @@ $button = get_field('button');
 <div class="home-icons">
 	<a href="/lesson-plans"><img src="<?php echo get_template_directory_uri() ?>/img/icon-toolkit.svg" class="icon-toolkit" /></a>
 	<p class="button"><a href="/lesson-plans">Go To The Toolkit</a></p>
-	<a id="about"></a>
 	<p class="button learn-more"><a href="#about">Learn More</a></p>
 </div>
+<a id="about" class="anchor-link"></a>

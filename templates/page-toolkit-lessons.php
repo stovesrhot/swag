@@ -26,12 +26,12 @@
 							<h2>New Around Here?</h2>
 							<p>Learn about the lessons and the curriculum.</p>
 							<div class="row">
-								<div class="col-6">
+								<div class="col-md-6">
 									<img src="<?php echo get_template_directory_uri() ?>/img/icon-tk-tour.svg" />
-									<p class="button tk1"><a href="#">Tour a Lesson</a></p>
+									<p class="button tk1"><a href="/using-the-toolkit">Tour a Lesson</a></p>
 									<p class="smallp">Take a quick look at what’s in a lesson plan.</p>
 								</div>
-								<div class="col-6">
+								<div class="col-md-6">
 									<img src="<?php echo get_template_directory_uri() ?>/img/icon-tk-overview.svg" />
 									<p class="button tk2"><a href="/wp-content/uploads/2020/05/ISRC_SWAGOverview.pdf" target="_blank">Read the Overview</a></p>
 									<p class="smallp">Learn more about who and what inspires this work.</p>
@@ -39,17 +39,37 @@
 							</div>
 						</div>
 					</div>
+					<?php if (is_user_logged_in()) { ?>
 					<div class="col-md-6">
 						 <div class="toolkit-box">
 							<h2>My Toolkit</h2>
 							<p>Manage your saved lessons and stay in touch.</p>
 							<div class="row">
-								<div class="col-6">
+								<div class="col-md-6">
+									<img src="<?php echo get_template_directory_uri() ?>/img/icon-red-review.svg" />
+									<p class="button tk3"><a href="https://widener.qualtrics.com/jfe/form/SV_bg9V6CGgbBUOKBD" target="_blank">Leave Feedback</a></p>
+									<p class="smallp">Did you facilitate a lesson? Share your experience!</p>
+								</div>
+								<div class="col-md-6">
+									<img src="<?php echo get_template_directory_uri() ?>/img/icon-red-favorite.svg" />
+									<p class="button tk4"><a href="/my-toolkit">View Favorites</a></p>
+									<p class="smallp">See all your saved favorites in one place.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<?php } else { ?>
+					<div class="col-md-6">
+						 <div class="toolkit-box">
+							<h2>My Toolkit</h2>
+							<p>Manage your saved lessons and stay in touch.</p>
+							<div class="row">
+								<div class="col-md-6">
 									<img src="<?php echo get_template_directory_uri() ?>/img/icon-red-login.svg" />
 									<p class="button tk3"><a href="/log-in">Log In</a></p>
 									<p class="smallp">See your saved lessons and leave feedback.</p>
 								</div>
-								<div class="col-6">
+								<div class="col-md-6">
 									<img src="<?php echo get_template_directory_uri() ?>/img/icon-red-account.svg" />
 									<p class="button tk4"><a href="/create-account">Create an Account</a></p>
 									<p class="smallp">View and download lessons.</p>
@@ -57,6 +77,7 @@
 							</div>
 						</div>
 					</div>
+					<?php } ?>
 				</div>
 
 				<a id="standard" class="anchor-link"></a>
@@ -70,7 +91,7 @@
 				?>
 				<div class="category-container cat<?php echo $category_id?>">
 					<h2>Discrimination & Bias</h2>
-					<p>Lessons about issues of prejudice and discrimination and ways to address them</p>
+					<p><?php echo get_field('discrimination_bias'); ?></p>
 					<?php if(count($lessons)>5): ?>
 					<a class="lesson-arrow-left" data-category-id="<?= $category_id ?>" href="#/"><img src="<?php echo get_template_directory_uri() ?>/img/lesson-arrow-left.svg" /></a>
 					<a class="lesson-arrow-right" data-category-id="<?= $category_id ?>" href="#/"><img src="<?php echo get_template_directory_uri() ?>/img/lesson-arrow-right.svg" /></a>
@@ -128,7 +149,7 @@
 				?>
 				<div class="category-container cat<?php echo $category_id?>">
 					<h2>Family & Relationships</h2>
-					<p>Lessons about social supports, and developing and maintaining relationships</p>
+					<p><?php echo get_field('family_relationships'); ?></p>
 					<?php if(count($lessons)>5): ?>
 					<div class="lesson-arrow-left" data-category-id="<?= $category_id ?>"><img src="<?php echo get_template_directory_uri() ?>/img/lesson-arrow-left.svg" /></div>
 					<div class="lesson-arrow-right" data-category-id="<?= $category_id ?>"><img src="<?php echo get_template_directory_uri() ?>/img/lesson-arrow-right.svg" /></div>
@@ -186,7 +207,7 @@
 				?>
 				<div class="category-container cat<?php echo $category_id?>">
 					<h2>Identity & Personal Development</h2>
-					<p>Lessons	about developing an understanding of oneself, and learning ways to process ones thoughts and feelings</p>
+					<p><?php echo get_field('identity_personal'); ?></p>
 					<?php if(count($lessons)>5): ?>
 					<a class="lesson-arrow-left" data-category-id="<?= $category_id ?>" href="#/"><img src="<?php echo get_template_directory_uri() ?>/img/lesson-arrow-left.svg" /></a>
 					<a class="lesson-arrow-right" data-category-id="<?= $category_id ?>" href="#/"><img src="<?php echo get_template_directory_uri() ?>/img/lesson-arrow-right.svg" /></a>
@@ -244,7 +265,7 @@
 				?>
 				<div class="category-container cat<?php echo $category_id?>">
 					<h2>Sexual Health & HIV</h2>
-					<p>Lessons about living a happy and healthy sex life with and without HIV</p>
+					<p><?php echo get_field('sexual_health'); ?></p>
 					<?php if(count($lessons)>5): ?>
 					<a class="lesson-arrow-left" data-category-id="<?= $category_id ?>" href="#/"><img src="<?php echo get_template_directory_uri() ?>/img/lesson-arrow-left.svg" /></a>
 					<a class="lesson-arrow-right" data-category-id="<?= $category_id ?>" href="#/"><img src="<?php echo get_template_directory_uri() ?>/img/lesson-arrow-right.svg" /></a>
@@ -302,7 +323,7 @@
 				?>
 				<div class="category-container  cat<?php echo $category_id?>">
 					<h2>Society & Culture</h2>
-					<p>Lessons about identifying community and developing support systems</p>
+					<p><?php echo get_field('society_culture'); ?></p>
 					<?php if(count($lessons)>5): ?>
 					<a class="lesson-arrow-left" data-category-id="<?= $category_id ?>" href="#/"><img src="<?php echo get_template_directory_uri() ?>/img/lesson-arrow-left.svg" /></a>
 					<a class="lesson-arrow-right" data-category-id="<?= $category_id ?>" href="#/"><img src="<?php echo get_template_directory_uri() ?>/img/lesson-arrow-right.svg" /></a>
@@ -368,7 +389,7 @@
 				?>
 				<div class="category-container cat<?php echo $category_id?>">
 					<h2>lessons for client experience contributors (CECs)</h2>
-					<p>Lessons focusing on knowledge and skills to help CECs better serve black gay and bisexual men</p>
+					<p><?php echo get_field('cecs'); ?></p>
 					<?php if(count($lessons)>5): ?>
 					<div class="lesson-arrow-left" data-category-id="<?= $category_id ?>"><img src="<?php echo get_template_directory_uri() ?>/img/lesson-arrow-left-cec.svg" /></div>
 					<div class="lesson-arrow-right" data-category-id="<?= $category_id ?>"><img src="<?php echo get_template_directory_uri() ?>/img/lesson-arrow-right-cec.svg" /></div>

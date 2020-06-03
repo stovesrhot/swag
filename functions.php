@@ -101,7 +101,7 @@ function html5blank_header_scripts()
         wp_register_script('jqueryui', 'https://code.jquery.com/ui/1.12.1/jquery-ui.js', array('jquery'), '1.12.1'); // Modernizr
         wp_enqueue_script('jqueryui'); // Enqueue it!
 
-        wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery','favorites'), '1.0.0'); // Custom scripts
+        wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery','favorites'), '1.0.1'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
     }
 }
@@ -127,7 +127,7 @@ function html5blank_styles()
     wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('html5blank'); // Enqueue it!
     
-    wp_register_style('custom', get_template_directory_uri() . '/custom.css', array(), '1.0', 'all');
+    wp_register_style('custom', get_template_directory_uri() . '/custom.css', array(), '1.4', 'all');
     wp_enqueue_style('custom'); // Enqueue it!
     
     wp_register_style('adobefonts', 'https://use.typekit.net/vhn6ebz.css', array(), '1.0', 'all');
@@ -598,6 +598,35 @@ function wpf_dev_autologin( $user_id, $fields, $form_data, $userdata ) {
     );
 }
 add_action( 'wpforms_user_registered', 'wpf_dev_autologin', 10, 4 );
+
+
+// Function to change "posts" to "news" in the admin side menu
+function change_post_menu_label() {
+    global $menu;
+    global $submenu;
+    $menu[5][0] = 'Lessons';
+    $submenu['edit.php'][5][0] = 'Lessons';
+    $submenu['edit.php'][10][0] = 'Add Lesson';
+    $submenu['edit.php'][16][0] = 'Tags';
+    echo '';
+}
+add_action( 'admin_menu', 'change_post_menu_label' );
+// Function to change post object labels to "news"
+function change_post_object_label() {
+    global $wp_post_types;
+    $labels = &$wp_post_types['post']->labels;
+    $labels->name = 'Lessons';
+    $labels->singular_name = 'Lesson';
+    $labels->add_new = 'Add Lesson';
+    $labels->add_new_item = 'Add Lesson';
+    $labels->edit_item = 'Edit Lesson';
+    $labels->new_item = 'Lesson';
+    $labels->view_item = 'View Lesson';
+    $labels->search_items = 'Search Lessons';
+    $labels->not_found = 'No Lessons found';
+    $labels->not_found_in_trash = 'No Lessons found in Trash';
+}
+add_action( 'init', 'change_post_object_label' );
 
 
 /*------------------------------------*\

@@ -47,7 +47,7 @@ $text = get_field('text') ?: 'Contact info';
 		<p class="center">The lesson plans are divided into two sections, each devoted to a distinct, but related, audience:</p>
 		
 		<div class="row no-gutters">
-			<div class="col-md-6">
+			<div class="col-lg-6">
 				<div class="curriculum-box cb1">
 					<h3>Adult Black Men</h3>
 					<div class="cb-body">
@@ -68,7 +68,7 @@ $text = get_field('text') ?: 'Contact info';
 					</div>
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-lg-6">
 				<div class="curriculum-box cb2">
 					<h3>Client Experience Contributors</h3>
 					<div class="cb-body">
@@ -84,10 +84,10 @@ $text = get_field('text') ?: 'Contact info';
 						
 						
 						<div class="cec-example row no-gutters">
-							<div class="col-sm-6">
+							<div class="col-6">
 								<p>Lessons specifically intended for CECs are identified with small, red labels at the top of the lesson cover page.</p>
 							</div>
-							<div class="col-sm-6">
+							<div class="col-6">
 								<img src="<?php echo get_template_directory_uri() ?>/img/cec-example.svg" />
 							</div>
 						</div>

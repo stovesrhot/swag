@@ -37,7 +37,7 @@ if( !empty($block['align']) ) {
 			$cover = get_sub_field('cover');
 			$link = get_sub_field('link');
 			?>
-			<div class="col-4">
+			<div class="col-md-4">
 			<?php if( !empty( $cover ) ): ?>
 				<a href="<?php echo $link; ?>" target="_blank"><img src="<?php echo esc_url($cover['url']); ?>" alt="<?php echo esc_attr($cover['alt']); ?>" /></a>
 				<p><?php echo $title; ?></p>

@@ -33,14 +33,25 @@
 			<!-- begin lesson -->
 			<div class="row no-gutters lesson-tools">
 				<div class="col-sm-6">
-					<p class="theme">Theme: <strong><?php foreach((get_the_category()) as $category){echo $category->name;} ?></strong></p>
+					<p class="theme">Theme: <strong>
+					<?php foreach((get_the_category()) as $category){
+						switch ($category->name) {
+							case 'Standard':
+								break;
+							default:
+								echo $category->name;
+						}
+					} 
+					?></strong></p>
 				</div>
 				<div class="col-sm-6">
+				<?php if (is_user_logged_in()) { ?>
 				<ul>
 					<li><i class="icon-share"></i><a href="#">Share</a></li>
 					<li><i class="icon-review"></i><a href="https://widener.qualtrics.com/jfe/form/SV_bg9V6CGgbBUOKBD" target="_blank">Review</a></li>
 					<li><?php the_favorites_button($post_id, $site_id); ?></li>
 				</ul>
+				<?php } ?>
 				</div>
 			</div>
 			
@@ -91,7 +102,11 @@
 			
 					<h3>DOWNLOAD complete lesson resources</h3>
 					<p>Get all the documents you need for this lesson as a compressed (.zip) file.</p>
+					<?php if (is_user_logged_in()) { ?>
 					<p class="button"><a href="<?php echo $download['url']; ?>">Download</a></p>
+					<?php } else { ?>
+					<p>To download, <a href="/create-account">create an account</a>.</p>
+					<?php } ?>
 				</div>
 			
 				<div class="col-md-6 rightcol">

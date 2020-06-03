@@ -22,7 +22,7 @@
 			<div class="top-box">
 			<?php if (is_user_logged_in()) {
 				$user_info = get_userdata(get_current_user_id());
-				echo "<p>Hi, " . $user_info->first_name ."!</p>";?>
+				echo "<p>Hi, " . $user_info->first_name ."! (<a href='" . wp_logout_url('/log-in')."' class='logout'>Log out</a>)</p>";?>
 				<div class="row">
 					<div class="col-4">
 						<img src="<?php echo get_template_directory_uri() ?>/img/icon-blue-favorite.svg" />
@@ -56,16 +56,30 @@
 			<div class="limit">
 				<a id="favorites" class="anchor-link"></a>
 				<h2>Favorites</h2>
+				<div class="lessons-anchors"><strong>My Standard Lessons</strong></div>
 				<?php
 				$filters = array(
+				  'terms' => array(
+					'category' => array(
+					  'standard'
+					)
+				  )
+				);
+				the_user_favorites_list(null, null, true, $filters);
+				?>
+				<div class="cecs">
+				<div class="lessons-anchors"><strong>My CEC Lessons</strong></div>
+				<?php
+				$filters2 = array(
 				  'terms' => array(
 					'category' => array(
 					  'cecs'
 					)
 				  )
 				);
-				the_user_favorites_list(null, null, true, $filters);
+				the_user_favorites_list(null, null, true, $filters2);
 				 ?>
+				 </div>
 			</div>
 
 			<div class="review">
@@ -81,7 +95,11 @@
 				<a id="edit" class="anchor-link"></a>
 				<div class="limit">
 					<h2>Edit Profile</h2>
-					<?php the_content(); ?>
+					<?php if (is_user_logged_in()) {
+					the_content(); 
+					} else { ?>
+					<p>Please <a href="/log-in">log in</a> to edit your profile.</p>
+					<?php } ?>
 				</div>
 			</div>
 
